@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+
+    <title>Consulta Autenticidade - Demonstração</title>
+
+
+    <!-- Roboto -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            font-family: Roboto, Arial, sans-serif;
+
+            /*
+             * Mesmo padrão visual do original.
+             */
+            background-color: #f8fafc;
+
+            background-image: url(
+                "https://painelgerencial.unicarioca.edu.br/assets/img/patterns/waihouOpacity.svg"
+            );
+
+            background-size: cover;
+
+            background-repeat: repeat-y;
+
+            background-position: center;
+
+            min-height: 100vh;
+        }
+
+
+        /*
+         * ============================================================
+         * CONTAINER PRINCIPAL
+         * ============================================================
+         */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1140px;
+
+            margin-right: auto;
+            margin-left: auto;
+
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+
+        /*
+         * ============================================================
+         * CARD
+         * ============================================================
+         */
+
+        .card {
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            width: 100%;
+
+            margin-top: 1.5rem;
+
+            background-color: #fff;
+
+            background-clip: border-box;
+
+            border: 1px solid rgba(0, 0, 0, .125);
+
+            border-radius: 0.25rem;
+
+            box-shadow:
+                0 0.125rem 0.25rem rgba(0, 0, 0, .075);
+        }
+
+
+        /*
+         * ============================================================
+         * TÍTULO
+         * ============================================================
+         */
+
+        .title-container {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 0.5rem;
+        }
+
+
+        h1 {
+
+            font-family: Roboto, sans-serif;
+
+            font-weight: 700;
+
+            color: #121212;
+
+            font-size: 1.75rem;
+
+            line-height: 1.2;
+
+            margin-top: 0;
+
+            margin-bottom: 0.5rem;
+
+            text-align: center;
+        }
+
+
+        /*
+         * ============================================================
+         * LOGO
+         * ============================================================
+         */
+
+        .logo-container {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 0.5rem;
+        }
+
+
+        .logo {
+
+            width: 9rem;
+
+            height: auto;
+
+            object-fit: contain;
+        }
+
+
+        /*
+         * ============================================================
+         * INDICADOR DE DEMONSTRAÇÃO
+         * ============================================================
+         */
+
+        .demo {
+
+            text-align: center;
+
+            font-size: 10px;
+
+            color: #777;
+
+            margin-top: 2px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /*
+         * ============================================================
+         * ÁREA DOS DADOS
+         * ============================================================
+         */
+
+        .dados-container {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 1.5rem;
+        }
+
+
+        .dados {
+
+            width: 75%;
+        }
+
+
+        /*
+         * ============================================================
+         * CAMPOS
+         * ============================================================
+         */
+
+        .campo {
+
+            margin-bottom: 0.5rem;
+
+            font-size: 14px;
+
+            line-height: 1.25rem;
+
+            color: #212529;
+        }
+
+
+        .campo b {
+
+            font-weight: 700;
+        }
+
+
+        /*
+         * Chave pode ser muito grande.
+         * Igual ao comportamento do original.
+         */
+
+        .chave {
+
+            display: flex;
+
+            word-break: break-all;
+        }
+
+
+        /*
+         * ============================================================
+         * ERRO
+         * ============================================================
+         */
+
+        .erro {
+
+            width: 75%;
+
+            margin: 20px auto;
+
+            padding: 15px;
+
+            color: #842029;
+
+            background-color: #f8d7da;
+
+            border: 1px solid #f5c2c7;
+
+            border-radius: 0.25rem;
+
+            font-size: 14px;
+        }
+
+
+        .hidden {
+
+            display: none;
+        }
+
+
+        /*
+         * ============================================================
+         * RESPONSIVO
+         * ============================================================
+         */
+
+        @media (max-width: 768px) {
+
+            .container {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+
+
+            h1 {
+
+                font-size: 1.25rem;
+
+                padding: 0.5rem;
+            }
+
+
+            .dados {
+
+                width: 90%;
+            }
+
+
+            .campo {
+
+                font-size: 13px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .card {
+
+                margin-top: 10px;
+            }
+
+
+            .logo {
+
+                width: 6rem;
+            }
+
+
+            .dados {
+
+                width: 92%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main>
+
+        <div class="container">
+
+
+            <div class="card">
+
+
+                <!-- ==================================================
+                     TÍTULO
+                     ================================================== -->
+
+                <div class="title-container">
+
+                    <h1>
+                        Autenticidade da Carteirinha de Estudante
+                    </h1>
+
+                </div>
+
+
+                <!-- ==================================================
+                     LOGO
+                     ================================================== -->
+
+                <div class="logo-container">
+
+                    <!-- Use aqui uma logo própria para a demonstração -->
+                    <img
+                        class="logo"
+                        src="https://painelgerencial.unicarioca.edu.br/class/img//icon_logo_unicarioca.jpg"
+                        alt="Logo"
+                    >
+
+                </div>
+
+
+                <!-- Identificação da apresentação -->
+                <div class="demo">
+                    DEMONSTRAÇÃO ACADÊMICA
+                </div>
+
+
+                <!-- ==================================================
+                     ERRO
+                     ================================================== -->
+
+                <div
+                    id="erro"
+                    class="erro hidden"
+                ></div>
+
+
+                <!-- ==================================================
+                     DADOS
+                     ================================================== -->
+
+                <section
+                    id="dados"
+                    class="dados-container hidden"
+                >
+
+                    <div class="dados">
+
+
+                        <div class="campo">
+
+                            <label>
+                                Aluno(a):
+                                <b id="aluno"></b>
+                            </label>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Matrícula:
+                                <b id="matricula"></b>
+                            </label>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Curso:
+                                <b id="curso"></b>
+                            </label>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+                                Unidade:
+                                <b id="unidade"></b>
+                            </label>
+
+                        </div>
+
+
+                        <div class="campo chave">
+
+                            <label>
+
+                                Chave de autenticidade:
+
+                                <b id="chaveAutenticidade"></b>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label>
+
+                                Carteirinha válida até a data:
+
+                                <b id="validade"></b>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        /*
+         * ============================================================
+         * BASE64 -> UTF-8
+         * ============================================================
+         */
+
+        function decodeBase64UTF8(base64) {
+
+            const binary = atob(base64);
+
+            const bytes = Uint8Array.from(
+                binary,
+                char => char.charCodeAt(0)
+            );
+
+            return new TextDecoder("utf-8").decode(bytes);
+        }
+
+
+        /*
+         * ============================================================
+         * TOKEN DA URL
+         * ============================================================
+         *
+         * Exemplo:
+         *
+         * https://seusite.com/?token=eyJBbHVubyI6...
+         *
+         */
+
+        function getToken() {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            return params.get("token");
+        }
+
+
+        /*
+         * ============================================================
+         * PREENCHER OS CAMPOS
+         * ============================================================
+         */
+
+        function preencherDados(data) {
+
+
+            document
+                .getElementById("aluno")
+                .textContent =
+                    data.Aluno || "";
+
+
+            document
+                .getElementById("matricula")
+                .textContent =
+                    data.matricula || "";
+
+
+            document
+                .getElementById("curso")
+                .textContent =
+                    data.curso || "";
+
+
+            document
+                .getElementById("unidade")
+                .textContent =
+                    data.unidade || "";
+
+
+            document
+                .getElementById("validade")
+                .textContent =
+                    data.validade || "";
+
+
+            document
+                .getElementById("chaveAutenticidade")
+                .textContent =
+                    data.chaveAutenticidade || "";
+
+
+            document
+                .getElementById("dados")
+                .classList
+                .remove("hidden");
+        }
+
+
+        /*
+         * ============================================================
+         * ERRO
+         * ============================================================
+         */
+
+        function mostrarErro(mensagem) {
+
+            const erro =
+                document.getElementById("erro");
+
+            erro.textContent = mensagem;
+
+            erro.classList.remove("hidden");
+        }
+
+
+        /*
+         * ============================================================
+         * PROCESSAR TOKEN
+         * ============================================================
+         */
+
+        function processarToken() {
+
+
+            const token = getToken();
+
+
+            if (!token) {
+
+                mostrarErro(
+                    "Nenhum token foi informado na URL."
+                );
+
+                return;
+            }
+
+
+            try {
+
+
+                /*
+                 * Base64 -> JSON
+                 */
+
+                const json =
+                    decodeBase64UTF8(token);
+
+
+                /*
+                 * JSON -> objeto
+                 */
+
+                const data =
+                    JSON.parse(json);
+
+
+                /*
+                 * Verificação básica
+                 */
+
+                if (!data.Aluno ||
+                    !data.matricula ||
+                    !data.curso ||
+                    !data.unidade ||
+                    !data.validade ||
+                    !data.chaveAutenticidade) {
+
+                    throw new Error(
+                        "Campos obrigatórios ausentes."
+                    );
+                }
+
+
+                /*
+                 * Mostrar dados
+                 */
+
+                preencherDados(data);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarErro(
+                    "O token informado é inválido."
+                );
+            }
+
+        }
+
+
+        /*
+         * ============================================================
+         * INICIALIZAÇÃO
+         * ============================================================
+         */
+
+        processarToken();
+
+
+    </script>
+
+
+</body>
+
+</html>
